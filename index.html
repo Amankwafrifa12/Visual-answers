@@ -141,15 +141,15 @@
         }
 
         .contact-box {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             width: 80%;
-
+            max-width: 600px;
             transition: transform 0.3s ease;
         }
 
@@ -161,7 +161,6 @@
         .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
             font-size: 1.1rem;
             color: #333;
             padding: 10px;
@@ -212,6 +211,10 @@
             z-index: 1000;
             box-shadow: 1px 1px 10px rgb(138, 138, 138);
 
+        }
+
+        header img {
+            width: 40%;
         }
 
         .nav-links {
@@ -280,6 +283,10 @@
             .contact-box {
                 grid-template-columns: 1fr;
             }
+
+            header img {
+                width: 200px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -289,6 +296,10 @@
 
             .contact-box {
                 padding: 15px;
+            }
+
+            header img {
+                width: 150px;
             }
         }
 
@@ -387,7 +398,7 @@
 
             <a href="index.html" style="text-decoration: none; color: white;">
 
-                <img src="img/visual.png" alt="" width="40%" onclick="window.location.href='index.php'">
+                <img src="img/visual.png" alt="visual answers logo" onclick="window.location.href='index.php'">
 
             </a>
 
@@ -431,7 +442,7 @@
     </section>
     <br>
     <section id="portfolio" class="portfolio">
-        <h2 style="text-align: center;">-- Portfolio --</h2>
+        <h2 style="text-align: center;">Portfolio</h2>
         <div class="gallery">
             <div class="gallery-item">
                 <img src="img/pieta.jpg" alt="Sunset">
