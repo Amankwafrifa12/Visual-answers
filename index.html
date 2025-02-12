@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Oduro Yeboah - Sculptor</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
     <style>
@@ -35,6 +36,271 @@
             background-size: cover;
             background-position: center;
             animation: slideshow 10s infinite alternate;
+        }
+
+
+        .gallery {
+            column-count: 3;
+            column-gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .gallery-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 95%;
+            margin: 0 0 20px 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .details {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 90%;
+            height: 90%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content img {
+            width: 50%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Contact section styles */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Individual contact item */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            color: #333;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        .contact-item p {
+            margin: 0;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #2e7d32;
+        }
+
+        /* Header Styling */
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background-color: #ffffff;
+
+            color: #ffffff;
+
+            padding: 1rem 2rem;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+            box-shadow: 1px 1px 10px rgb(138, 138, 138);
+
+        }
+
+        .nav-links {
+
+            list-style: none;
+
+            display: flex;
+
+            gap: 1.5rem;
+
+        }
+
+
+
+        .nav-links li a {
+
+            color: #000000;
+
+            text-decoration: none;
+
+            font-size: 1rem;
+
+            transition: color 0.3s;
+
+        }
+
+
+
+        .nav-links li a:hover {
+
+            color: #6699cc;
+
+        }
+
+
+
+        .hamburger {
+
+            display: none;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .hamburger span {
+
+            display: block;
+
+            width: 25px;
+
+            height: 3px;
+
+            background-color: #000000;
+
+        }
+
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-box {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                column-count: 1;
+            }
         }
 
         @keyframes slideshow {
@@ -82,13 +348,181 @@
 </head>
 
 <body>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+
+        const navLinks = document.getElementById('nav-links');
+
+        const links = navLinks.querySelectorAll('li a'); // Select all navigation links
+
+
+
+        hamburger.addEventListener('click', () => {
+
+            navLinks.classList.toggle('active');
+
+        });
+
+
+
+        // Close the hamburger menu when a nav link is clicked
+
+        links.forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                navLinks.classList.remove('active'); // Remove the active class to close the menu
+
+            });
+
+        });
+    </script>
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" style="text-decoration: none; color: white;">
+
+                <img src="img/visual.png" alt="" width="40%" onclick="window.location.href='index.php'">
+
+            </a>
+
+        </div>
+
+        <nav>
+
+            <ul id="nav-links" class="nav-links">
+
+
+
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+
+
+                <li><a href="index.html#contact">Contact</a></li>
+
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </div>
+
+        </nav>
+
+    </header>
+
     <section class="hero">
         <div class="slideshow"></div>
         <div class="overlay"></div>
         <div class="hero-content">
             <h1 class="fade-in">Daniel Oduro Yeboah</h1>
             <p class="slide-up">Crafting Timeless Art from Stone & Wood</p>
-            <a href="#portfolio" class="btn">Explore My Work</a>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+    </section>
+    <br>
+    <section id="portfolio" class="portfolio">
+        <h2 style="text-align: center;">-- Portfolio --</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/pieta.jpg" alt="Sunset">
+                <div class="details">
+                    <p><strong>Title:</strong> Sunset</p>
+                    <p><strong>Medium:</strong> Oil on Canvas</p>
+                    <p><strong>Dimension:</strong> 24x36 inches</p>
+                    <p><strong>Year:</strong> 2023</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/puberty-1.jpg" alt="Mountain View">
+                <div class="details">
+                    <p><strong>Title:</strong> Mountain View</p>
+                    <p><strong>Medium:</strong> Watercolor</p>
+                    <p><strong>Dimension:</strong> 18x24 inches</p>
+                    <p><strong>Year:</strong> 2022</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/puberty.jpg" alt="Pieta">
+                <div class="details">
+                    <p><strong>Title:</strong> Pieta</p>
+                    <p><strong>Medium:</strong> Sculpture</p>
+                    <p><strong>Dimension:</strong> Life-size</p>
+                    <p><strong>Year:</strong> 1499</p>
+                </div>
+            </div>
+
+
+
+            <div class="gallery-item">
+                <img src="img/woman.jpg" alt="Pieta">
+                <div class="details">
+                    <p><strong>Title:</strong> Pieta</p>
+                    <p><strong>Medium:</strong> Sculpture</p>
+                    <p><strong>Dimension:</strong> Life-size</p>
+                    <p><strong>Year:</strong> 1499</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/wrack.jpg" alt="Pieta">
+                <div class="details">
+                    <p><strong>Title:</strong> Pieta</p>
+                    <p><strong>Medium:</strong> Sculpture</p>
+                    <p><strong>Dimension:</strong> Life-size</p>
+                    <p><strong>Year:</strong> 1499</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/world.jpg" alt="Pieta">
+                <div class="details">
+                    <p><strong>Title:</strong> Pieta</p>
+                    <p><strong>Medium:</strong> Sculpture</p>
+                    <p><strong>Dimension:</strong> Life-size</p>
+                    <p><strong>Year:</strong> 1499</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="modal" id="modal">
+
+        <span class="prev" id="prev">&#10094;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+        </div>
+        <span class="next" id="next">&#10095;</span>
+    </div>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-box">
+            <div class="contact-item">
+                <i class="fa fa-map-marker"></i>
+                <p>P.O. Box AH 206, Achimota</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-location-arrow"></i>
+                <p>Pomadze, Winneba</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:durospec2000@gmail.com">durospec2000@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-phone"></i>
+                <p><a href="tel:+233243518028">+233 243 518 028</a></p>
+            </div>
         </div>
     </section>
     <script>
